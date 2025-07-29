@@ -8,6 +8,10 @@
   <sub><strong>Nir Voloshin</strong> & <strong>Yuri Minin</strong></sub>
 </h3>
 
+<p align="center">
+  <img src="https://your-image-link.com/banner.png" width="600">
+</p>
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Goals](#goals)
