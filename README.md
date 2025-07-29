@@ -9,7 +9,7 @@
 </h3>
 
 <p align="center">
-  <img src="assets/logo/logo_1.png" alt="Lyric Emotion Classifier Logo" width="300"/>
+<img src="assets/logo_1.png" alt="Lyric Emotion Classifier Logo" width="300"/>
 </p>
 
 ## Table of Contents
