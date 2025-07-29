@@ -110,6 +110,10 @@ Fine-tuned BERT Loss plots
 2. The overall prediction performance was not as strong as expected.
 3. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
 
+<p align="center">
+  <img src="assets/thinking.png" alt="Robot thinking" width="250"/>
+</p>
+
 
 ## Future Work
 As mentions previously, future work could explore incorporating multi-modal inputs, such as audio features or acoustic embeddings, alongside lyrics. These additional modalities may help the model better capture the emotional nuances that are difficult to infer from text alone. 
