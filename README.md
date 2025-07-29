@@ -38,6 +38,9 @@ By leveraging pretrained language models such as BERT, we seek to improve the un
 
 
 ## Goals
+<p align="center">
+  <img src="assets/goal.png" alt="Goal Target" width="250"/>
+</p>
 * Achieving well performance for our model.
 * Improving performance compared to basic neural network.
 
