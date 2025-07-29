@@ -1,7 +1,12 @@
-<h1 align="center"> Lyric-Emotion-Classifier-with-BERT </h1>
-<h2 align="center">Final project for the Technion's EE Deep Learning course (046211)</h2>
-<h3 align="center"><small>Nir Voloshin & Yuri Minin</small></h3>
+<h1 align="center">🎵 <u>Lyric-Emotion-Classifier-with-BERT</u> 🎵</h1>
 
+<h2 align="center">
+  <i>Final project for the Technion's EE Deep Learning course (046211)</i>
+</h2>
+
+<h3 align="center">
+  <sub><strong>Nir Voloshin</strong> & <strong>Yuri Minin</strong></sub>
+</h3>
 
 ## Table of Contents
 1. [Introduction](#introduction)
