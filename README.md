@@ -134,6 +134,11 @@ However, pursuing this direction would require a suitable dataset that includes 
 3. Run RF_fingerprints.ipynb.
 
 
+<p align="center">
+  <img src="assets/checklist.png" alt="Run Instructions Icon" width="280"/>
+</p>
+
+
 
 
 
