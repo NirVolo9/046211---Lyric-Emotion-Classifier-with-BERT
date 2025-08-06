@@ -27,7 +27,7 @@
 12. [How To Run](#how-to-run)  
     1. [Added Files](#added-files)  
     2. [Operation](#operation)
-
+13. [References](#references)  
 
 ## Introduction
 BERT (Bidirectional Encoder Representations from Transformers) is a transformer-based model pre-trained on large corpus. 
