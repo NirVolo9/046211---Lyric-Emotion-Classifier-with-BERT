@@ -20,10 +20,11 @@
    2. [Fine Tuning](#fine-tuning)
 5. [Dataset](#dataset) 
 6. [Experimental Setup](#experimental-setup)
-7. [Results](#results)
-8. [Conclusions](#conclusions)
-9. [Future Work](#future-work)
-10. [How To Run](#how-to-run)
+7. [EXTRA - Evaluation of Labeling and Training Strategies](#extra---evaluation-of-labeling-and-training-strategies)
+8. [Results](#results)
+9. [Conclusions](#conclusions)
+10. [Future Work](#future-work)
+11. [How To Run](#how-to-run)
 
 
 ## Introduction
@@ -85,6 +86,15 @@ The dataset the model was trained on :
 * Batch Size: 32
 * Learning Rate: 2e-5
 * Num of epochs: 20
+
+## EXTRA - Evaluation of Labeling and Training Strategies
+Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
+
+Secondly, we aimed to classify lyrics into discrete mood categories. Since the dataset provided valence as a continuous score, we applied quantization into four, then six classes. Both approaches yielded disappointing results, likely due to many samples falling near class boundaries. This suggested that applying classification to predefined continuous data introduces a mismatch with the task. 
+Therefore, we decided to proceed with a regression-based approach.
+
+Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.
+
 
 ## Results
 To evaluate the effectiveness of our approach, we compared our fine-tuned model to a baseline regressor that uses the same BERT-generated token embeddings as input to a simple MLP network.
