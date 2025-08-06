@@ -20,11 +20,13 @@
    2. [Fine Tuning](#fine-tuning)
 5. [Dataset](#dataset) 
 6. [Experimental Setup](#experimental-setup)
-7. [EXTRA - Evaluation of Labeling and Training Strategies](#extra---evaluation-of-labeling-and-training-strategies)
 8. [Results](#results)
 9. [Conclusions](#conclusions)
-10. [Future Work](#future-work)
-11. [How To Run](#how-to-run)
+10. [EXTRA - Evaluation of Labeling and Training Strategies](#extra---evaluation-of-labeling-and-training-strategies)
+11. [Future Work](#future-work)
+12. [How To Run](#how-to-run)  
+    1. [Added Files](#added-files)  
+    2. [Operation](#operation)
 
 
 ## Introduction
@@ -87,15 +89,6 @@ The dataset the model was trained on :
 * Learning Rate: 2e-5
 * Num of epochs: 20
 
-## EXTRA - Evaluation of Labeling and Training Strategies
-Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
-
-Secondly, we aimed to classify lyrics into discrete mood categories. Since the dataset provided valence as a continuous score, we applied quantization into four, then six classes. Both approaches yielded disappointing results, likely due to many samples falling near class boundaries. This suggested that applying classification to predefined continuous data introduces a mismatch with the task. 
-Therefore, we decided to proceed with a regression-based approach.
-
-Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.
-
-
 ## Results
 To evaluate the effectiveness of our approach, we compared our fine-tuned model to a baseline regressor that uses the same BERT-generated token embeddings as input to a simple MLP network.
 
@@ -118,11 +111,21 @@ Fine-tuned BERT Loss plots
 ## Conclusions
 1. Fine-tuned BERT model with LoRA adaptation achieved slightly better performance compared to the baseline MLP model.
 2. The overall prediction performance was not as strong as expected.
-3. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
+3. Exploring alternative language models, such as RoBERTa, may yield improved results due to their stronger pretraining and representational capacity. However, utilizing such models was not feasible within our available computational resources.  
+4. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
+5. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, suggesting that valence prediction from text alone may be fundamentally limited. Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
 
 <p align="center">
   <img src="assets/thinking.png" alt="Robot thinking" width="250"/>
 </p>
+
+## EXTRA - Evaluation of Labeling and Training Strategies
+Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
+
+Secondly, we aimed to classify lyrics into discrete mood categories. Since the dataset provided valence as a continuous score, we applied quantization into four, then six classes. Both approaches yielded disappointing results, likely due to many samples falling near class boundaries. This suggested that applying classification to predefined continuous data introduces a mismatch with the task. 
+Therefore, we decided to proceed with a regression-based approach.
+
+Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.
 
 
 ## Future Work
@@ -130,18 +133,15 @@ As mentions previously, future work could explore incorporating multi-modal inpu
 However, pursuing this direction would require a suitable dataset that includes both lyrics and corresponding audio, along with reliable valence annotations.
 
 ## How To Run
-1. Popularity_Analysis.ipynb – Contains the full training process and evaluation. You can modify hyperparameters and load previously trained models.
-2. Trained_models/ – Stores pre-trained models, including naive and optimized combined models.
-3. datasets/ – Contains a small dataset of 150 samples for testing. The full dataset (~3,000 samples) couldn't be uploaded due to storage limitations.
-   * Files are in pickle format (.pkl), which must be loaded in the notebook's initial cells.
-4. dataset_generations/ – Includes scripts for:
-   * Generating down-sampled spectrograms (~3k samples).
-   * Preprocessing the Spotify dataset (~550k samples).
-   * If needed, you can use the Kaggle API JSON file to fetch datasets.
 
-1. From the link in dataset section download the file GOLD_XYZ_OSC.0001_1024.hdf5 into directory named 'dataset'.
-2. Run data_preprocessing.py, located in the data_set_preprocessing directory.
-3. Run RF_fingerprints.ipynb.
+### Added Files
+1. Lyric_Emotion_Classifier.ipynb – contains the full training process and evaluation.
+2. saved_models/ – stores our trained models
+3. data/ – contains the organized data files we worked with.
+
+### Operation
+- Run Lyric_Emotion_Classifier.ipynb
+
 
 
 <p align="center">
@@ -149,7 +149,11 @@ However, pursuing this direction would require a suitable dataset that includes 
 </p>
 
 
+## References
 
+* [150K Lyrics Labeled with Spotify Valence](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
+* [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+* [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
 
 
 
