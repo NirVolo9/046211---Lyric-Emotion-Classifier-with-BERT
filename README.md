@@ -80,8 +80,8 @@ In our setup, LoRA is applied to the query and value projection layers of BERT's
 * Source: [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
 * Details: The dataset consists of approximately 150,000 song lyrics from a wide range of artists. Each entry includes:
   artist name, full lyrics, song title, and valence score provided by Spotify representing the emotional positivity of the track.
-* Why this dataset: We conducted an extensive search across several platforms including Kaggle, Google Dataset Search, Hugging Face Datasets and the like in pursuit of a suitable dataset for emotion prediction in lyrics.
-  Our main criteria were:
+* Why this dataset: We conducted an extensive search across several platforms including Kaggle, Google Dataset Search, Hugging Face Datasets and the like in pursuit of a suitable dataset for emotion prediction in lyrics.  
+  Our main criteria were:  
   1) Large sample size
   2) Full-length lyrics
   3) Emotion or valence labels
