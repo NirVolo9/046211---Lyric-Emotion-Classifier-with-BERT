@@ -140,6 +140,12 @@ As mentions previously, future work could explore incorporating multi-modal inpu
 However, pursuing this direction would require a suitable dataset that includes both lyrics and corresponding audio, along with reliable valence annotations.
 
 ## How To Run
+1. Start by downloading labeled_lyrics_cleaned.csv from  
+ [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
+ place the file inside a directory named **data** .
+2. Run the script data_preprocessing.py to clean and filter the dataset and saves he cleaned English-only version as english_lyrics_new.csv.
+3. place the file also inside  **data**.
+4. 
 
 ### Added Files
 1. Lyric_Emotion_Classifier.ipynb – contains the full training process and evaluation.
