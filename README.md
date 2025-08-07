@@ -26,7 +26,6 @@
 11. [Future Work](#future-work)
 12. [How To Run](#how-to-run)  
     1. [Added Files](#added-files)  
-    2. [Operation](#operation)
 13. [References](#references)  
 
 ## Introduction
@@ -151,12 +150,11 @@ However, pursuing this direction would require a suitable dataset that includes 
 6. Now you can compare results.
 
 ### Added Files
-1. Lyric_Emotion_Classifier.ipynb – contains the full training process and evaluation.
-2. saved_models/ – stores our trained models
-3. data/ – contains the organized data files we worked with.
+1. Lyric_Emotion_Classifier.ipynb 
+2. data_preprocessing.py 
+3. baseline_frozenBert_mlp.ipynb
 
-### Operation
-- Run Lyric_Emotion_Classifier.ipynb
+
 
 
 
