@@ -86,7 +86,7 @@ In our setup, LoRA is applied to the query and value projection layers of BERT's
   2) Full-length lyrics
   3) Emotion or valence labels
      
-Despite reviewing multiple sources, this dataset was the only one that satisfied all the criteria, making it the natural choice for our regression-based modeling task.
+ This dataset  satisfied all the criteria, making it the natural choice for our regression-based modeling task.
    
 ## Experimental Setup
 The model wasn't trained on the entire dataset due to hardware limitations. We took 30,000 samples out of the dataset.  
