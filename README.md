@@ -58,7 +58,7 @@ Our model is based on the BERT-base architecture. The model takes as input a tok
 
 ### Architecture Overview:
 * Backbone: bert-base-uncased pretrained language model (12 layers, 768 hidden size)
-* Input: Full lyrics are segmented into overlapping text chunks to respect BERT’s maximum sequence length of 512 tokens. --    - Distribution of chunks per sample is shown in the histogram below. Some samples were even split into 11 chunks.
+* Input: Full lyrics are segmented into overlapping text chunks to respect BERT’s maximum sequence length of 512 tokens. The Distribution of chunks per sample is shown in the histogram below. Some samples were even split into 11 chunks.
    - Each chunk  is generated with a fixed stride to maintain context continuity.
    - Each chunk is processed independently by BERT.
    - For each original lyric (song), the final valence prediction is obtained by averaging the predictions from all chunks        belonging to the same lyric.
