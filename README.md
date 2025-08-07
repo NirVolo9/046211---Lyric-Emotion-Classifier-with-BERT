@@ -114,10 +114,10 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
 
 ### The results for the two methods are as follows:
 
-Baseline (MLP) Loss plots
+**Baseline (MLP) Loss plots**
 <img width="790" height="490" alt="baseline_result" src="https://github.com/user-attachments/assets/57d02d9e-fe3b-44c1-8369-519b6c3c2faa" />
 
-Fine-tuned BERT Loss plots
+**Fine-tuned BERT Loss plots**
 <img width="738" height="586" alt="model_result" src="https://github.com/user-attachments/assets/ecddad1b-3bf6-481e-a9a4-ea5ec7738c77" />
 
 |Method      | MSE on test set|
