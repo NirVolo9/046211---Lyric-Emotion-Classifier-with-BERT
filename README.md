@@ -33,6 +33,10 @@
 BERT (Bidirectional Encoder Representations from Transformers) is a transformer-based model pre-trained on large corpus. 
 It captures deep bidirectional context-aware representations for tokens in a sentence and is widely used as a base model for transfer learning in natural language processing (NLP).
 
+<p align="center">
+  <img src="assets/bert.png" alt="BERT Google Logo" width="300"/>
+</p>
+
 BERT is typically fine-tuned for downstream tasks by adding task-specific layers on top of its pre-trained architecture. Depending on the nature of the task (classification, regression, sequence labeling), different outputs of the BERT model are used.
 
 In this project, we employ BERT for sentences-level emotion regression, where the input is a chunk of song lyrics and the output is a continuous-valued emotion score between 0-1 (e.g., valence). 
