@@ -80,11 +80,23 @@ In our setup, LoRA is applied to the query and value projection layers of BERT's
 * Source: [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
 * Details: The dataset consists of approximately 150,000 song lyrics from a wide range of artists. Each entry includes:
   artist name, full lyrics, song title, and valence score provided by Spotify representing the emotional positivity of the track.
-
+* Why this dataset: We conducted an extensive search across several platforms including Kaggle, Google Dataset Search, Hugging Face Datasets and the like in pursuit of a suitable dataset for emotion prediction in lyrics.
+  Our main criteria were:
+  1) Large sample size
+  2) Full-length lyrics
+  3) Emotion or valence labels
+     
+Despite reviewing multiple sources, this dataset was the only one that satisfied all the criteria, making it the natural choice for our regression-based modeling task.
    
 ## Experimental Setup
-The model wasn't trained on the entire dataset due to hardware limitations. We took 30,000 samples out of the dataset.
-The dataset the model was trained on :
+The model wasn't trained on the entire dataset due to hardware limitations. We took 30,000 samples out of the dataset.  
+We didn’t settle on these values arbitrarily but rather after extensive experimentation with various learning rates, batch sizes, and epoch counts.
+We conducted a thorough grid-style search:  
+ * Batch sizes: 8, 16, and 32 — to evaluate how gradient noise and update frequency affected convergence.
+ * Learning rates: from 1e-5, 5e-5, 1e-4, up to 1e-3 aiming to balance speed of learning with stability.
+ * Epoch counts: we trained for 15, 20, 25, and 30 epochs across configurations to study both underfitting and overfitting behaviors.
+   
+After comparing performance metrics and training curves across these combinations, we settled on a configuration :
 
 * Training Dataset Size: 24,000 samples
 * Validation\Test Dataset Size: 3,000 samples
@@ -92,10 +104,13 @@ The dataset the model was trained on :
 * Learning Rate: 2e-5
 * Num of epochs: 20
 
-## Results
+### The results for the two methods are as follows:
 To evaluate the effectiveness of our approach, we compared our fine-tuned model to a baseline regressor that uses the same BERT-generated token embeddings as input to a simple MLP network.
 
 <img width="968" height="266" alt="mlp_flowchart" src="https://github.com/user-attachments/assets/b5c8d1c9-165a-4c46-bcc0-1aa8f6162e1b" />
+
+
+## Results
 
 ### The results for the two methods are as follows:
 
