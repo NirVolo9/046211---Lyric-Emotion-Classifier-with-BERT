@@ -38,7 +38,7 @@ It captures deep bidirectional context-aware representations for tokens in a sen
 
 BERT is typically fine-tuned for downstream tasks by adding task-specific layers on top of its pre-trained architecture. Depending on the nature of the task (classification, regression, sequence labeling), different outputs of the BERT model are used.
 
-In this project, we employ BERT for sentences-level emotion regression, where the input is a chunk of song lyrics and the output is a continuous-valued emotion score between 0-1 (e.g., valence). 
+In this project, we employ BERT for sentences-level **emotion regression**, where the **input** is a chunk of song **Lyrics** and the output is a continuous-valued emotion score between 0-1 (e.g., valence). 
 
 By leveraging pretrained language models such as BERT, we seek to improve the understanding of emotional nuance in musical language. This approach has the potential to enhance music recommendation systems and at the end, our work opens the door to multimodal extensions that integrate audio, metadata, and listener feedback for richer emotion modeling.
 
@@ -48,20 +48,20 @@ By leveraging pretrained language models such as BERT, we seek to improve the un
   <img src="assets/goal.png" alt="Goal Target" width="250"/>
 </p>
 
-* Achieving well performance for our model.
+* Develop a model capable of accurately gauging emotional valence in song **lyrics**, capturing subtle mood shifts and emotional nuance in text.
   
-* Improving performance compared to basic neural network.
+* Demonstrate meaningful improvements over a basic neural network baseline, showing how contextual understanding from a pretrained BERT model enhances emotion  regression performance.
 
 ## Our Model
-Our model is based on the BERT-base architecture. The model takes as input a tokenized segment (chunk) of lyrics and outputs a continuous valence score representing the emotional content of the text.
+Our model is based on the BERT-base architecture. The model takes as input a tokenized segment (chunk) of **Lyrics** and outputs a continuous valence score representing the emotional content of the text.
 
 ### Architecture Overview:
 * Backbone: bert-base-uncased pretrained language model (12 layers, 768 hidden size)
-* Input: Full lyrics are segmented into overlapping text chunks to respect BERT’s maximum sequence length of 512 tokens. The Distribution of chunks per sample is shown in the histogram below. Some samples were even split into 11 chunks.
+* Input: Full **Lyrics** are segmented into overlapping text chunks to respect BERT’s maximum sequence length of 512 tokens. The Distribution of chunks per sample is shown in the histogram below. Some samples were even split into 11 chunks.
    - Each chunk  is generated with a fixed stride to maintain context continuity.
    - Each chunk is processed independently by BERT.
-   - For each original lyric (song), the final valence prediction is obtained by averaging the predictions from all chunks        belonging to the same lyric.
-* Regression Head: A two-layer feedforward network:
+   - For each original **Lyrics (songs)**, the final valence prediction is obtained by averaging the predictions from all chunks        belonging to the same lyric.
+* **Regression Head**: A two-layer feedforward network:
   Linear(768 → 128) → ReLU → Linear(128 → 1)
   
 <img width="589" height="455" alt="chunks" src="https://github.com/user-attachments/assets/8bed137b-1207-4d6c-9ac8-2817139e8f3e" />
