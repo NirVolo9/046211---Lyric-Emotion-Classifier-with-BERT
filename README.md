@@ -153,7 +153,7 @@ After several failed attempts and a few confused histograms, we metaphorically t
 Therefore, we decided to proceed with a regression-based approach which is naturally better suited for continuous labels like valence scores.
 
 Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.  
-We experimented with adapting anywhere from 2 to 8 layers, gradually adjusting the range to observe performance changes. Ultimately, we settled on adapting 4 layers (layers 9–12), which consistently produced the most balanced results in terms of accuracy and stability.  
+We experimented with adapting anywhere from 2 to 6 layers, gradually adjusting the range to observe performance changes. Ultimately, we settled on adapting 4 layers (layers 9–12), which consistently produced the most balanced results in terms of accuracy and stability.  
 
 However, our experiments showed that varying the number of LoRA-adapted layers had only a marginal effect on overall performance, suggesting that this approach alone was not sufficient to significantly improve regression accuracy.
 
