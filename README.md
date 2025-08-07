@@ -77,7 +77,7 @@ In our setup, LoRA is applied to the query and value projection layers of BERT's
 <img width="970" height="434" alt="flowchart" src="https://github.com/user-attachments/assets/8aa381ac-4640-4961-b479-8366258bd5f6" />
 
 ## Dataset
-### 150K Lyrics Labeled with Spotify Valence
+### 150K Lyrics Labeled with Spotify Valence  → Dataset `labeled_lyrics_cleaned.csv`
 * Source: [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
 * Details: The dataset consists of approximately 150,000 song lyrics from a wide range of artists. Each entry includes:
   artist name, full lyrics, song title, and valence score provided by Spotify representing the emotional positivity of the track.
@@ -117,7 +117,7 @@ Fine-tuned BERT Loss plots
 2. The overall prediction performance was not as strong as expected.
 3. Exploring alternative language models, such as RoBERTa, may yield improved results due to their stronger pretraining and representational capacity. However, utilizing such models was not feasible within our available computational resources.  
 4. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
-5. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, suggesting that valence prediction from text alone may be fundamentally limited. Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
+5.  Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
 
 <p align="center">
   <img src="assets/thinking.png" alt="Robot thinking" width="250"/>
@@ -126,10 +126,13 @@ Fine-tuned BERT Loss plots
 ## EXTRA - Evaluation of Labeling and Training Strategies
 Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
 
-Secondly, we aimed to classify lyrics into discrete mood categories. Since the dataset provided valence as a continuous score, we applied quantization into four, then six classes. Both approaches yielded disappointing results, likely due to many samples falling near class boundaries. This suggested that applying classification to predefined continuous data introduces a mismatch with the task. 
+Secondly, we aimed to classify lyrics into discrete mood categories. Since the dataset provided valence as a continuous score, we applied quantization into four, then six classes. Both approaches yielded disappointing results, likely due to many samples falling near class boundaries. 
+This highlighted a fundamental mismatch between continuous emotional labels and discrete classification.
+So, after several failed attempts and a few confused histograms, we metaphorically threw classification into the trash 🗑️.  
 Therefore, we decided to proceed with a regression-based approach.
 
-Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.
+Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.  
+However, our experiments showed that varying the number of LoRA-adapted layers had only a marginal effect on overall performance, suggesting that this approach alone was not sufficient to significantly improve regression accuracy.
 
 
 ## Future Work
