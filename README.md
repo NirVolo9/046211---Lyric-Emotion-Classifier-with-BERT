@@ -104,7 +104,7 @@ After comparing performance metrics and training curves across these combination
 * Learning Rate: 2e-5
 * Num of epochs: 20
 
-### The results for the two methods are as follows:
+### Baseline MLP Architecture for Regression Comparison
 To evaluate the effectiveness of our approach, we compared our fine-tuned model to a baseline regressor that uses the same BERT-generated token embeddings as input to a simple MLP network.
 
 <img width="968" height="266" alt="mlp_flowchart" src="https://github.com/user-attachments/assets/b5c8d1c9-165a-4c46-bcc0-1aa8f6162e1b" />
