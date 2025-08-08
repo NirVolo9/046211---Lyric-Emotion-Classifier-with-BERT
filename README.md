@@ -176,7 +176,7 @@ However, pursuing this direction would require a suitable dataset that includes 
 3. Place the file also inside  **data**.
 4. Run **Lyric_Emotion_Classifier.ipynb** which will generate and save tokenized datasets to data/tokenized_dataset_/ with splits: train/ , val/ , test/
    Once created, you don't need to regenerate these for future runs unless the data changes so skip thses parts.
-5. Run **baseline_frozenBert_mlp.ipynb** It uses the saved tokenized dataset to train a shallow MLP on top of frozen BERT features.
+5. Run **baseline_frozenBert_mlp.ipynb** It uses the saved tokenized dataset.
 6. Now you can compare results.
 
 ### Added Files
