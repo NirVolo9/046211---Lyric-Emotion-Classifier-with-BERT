@@ -163,14 +163,14 @@ As mentions previously, future work could explore incorporating multi-modal inpu
 However, pursuing this direction would require a suitable dataset that includes both lyrics and corresponding audio, along with reliable valence annotations.
 
 ## How To Run
-1. Start by downloading labeled_lyrics_cleaned.csv from  
+1. Start by downloading **labeled_lyrics_cleaned.csv** from  
  [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
  place the file inside a directory named **data** .
 2. Run the script data_preprocessing.py to clean and filter the dataset and saves he cleaned English-only version as english_lyrics_new.csv.
 3. Place the file also inside  **data**.
-4. Run Lyric_Emotion_Classifier.ipynb which will generate and save tokenized datasets to data/tokenized_dataset_/ with splits: train/ , val/ , test/
+4. Run **Lyric_Emotion_Classifier.ipynb** which will generate and save tokenized datasets to data/tokenized_dataset_/ with splits: train/ , val/ , test/
    Once created, you don't need to regenerate these for future runs unless the data changes so skip thses parts.
-5. Run baseline_frozenBert_mlp.ipynb. It uses the saved tokenized dataset to train a shallow MLP on top of frozen BERT features.
+5. Run **baseline_frozenBert_mlp.ipynb** It uses the saved tokenized dataset to train a shallow MLP on top of frozen BERT features.
 6. Now you can compare results.
 
 ### Added Files
