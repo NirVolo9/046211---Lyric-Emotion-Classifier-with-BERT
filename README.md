@@ -75,6 +75,27 @@ In our setup, LoRA is applied to the query and value projection layers of BERT's
 ### Model Flowchart
 <img width="970" height="434" alt="flowchart" src="https://github.com/user-attachments/assets/8aa381ac-4640-4961-b479-8366258bd5f6" />
 
+
+## EXTRA - Evaluation of Labeling and Training Strategies
+Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
+ 
+Secondly, we aimed to classify **lyrics** into discrete mood categories. Given that the dataset provided valence as a continuous score, we experimented with quantizing it into **four** distinct **classes**:  
+**Sad** (valence ≤ 0.25), **Calm** (0.25 < valence ≤ 0.5), **Content** (0.5 < valence ≤ 0.75), and **Happy** (valence > 0.75).    
+This process transformed the continuous valence values into integer class IDs ranging from 0 to 3, enabling us to approach the problem as a multi-class classification task.  
+In addition, we experimented with a **six class** division derived from the same valence scale, aiming to capture more nuanced emotional variations and evaluate whether finer granularity would lead to improved classification performance.  
+Unfortunately, both approaches yielded disappointing results:
+* The 4-class model barely reached ~40% accuracy.
+* The 6-class model performed even worse, at around ~20% accuracy.
+  
+We suspect the poor results were due to a large number of samples lying close to class boundaries, making them inherently ambiguous and causing the model to misclassify them frequently. This revealed a fundamental mismatch between the continuous nature of emotional valence and the rigid boundaries of discrete classification.  
+After several failed attempts and a few confused histograms, we metaphorically threw classification into the trash 🗑️.  
+Therefore, we decided to proceed with a regression-based approach which is naturally better suited for continuous labels like valence scores.
+
+Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.  
+We experimented with adapting anywhere from 2 to 4 layers, gradually adjusting the range to observe performance changes. Ultimately, we settled on adapting 3 layers (layers 9–11), which consistently produced the most balanced results in terms of accuracy and stability.  
+
+However, our experiments showed that varying the number of LoRA-adapted layers had only a marginal effect on overall performance, suggesting that this approach alone was not sufficient to significantly improve regression accuracy.
+
 ## Dataset
 ### 150K Lyrics Labeled with Spotify Valence  → Dataset `labeled_lyrics_cleaned.csv`
 * Source: [Kaggle - Valence-labeled Lyrics](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence/)
@@ -141,25 +162,6 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
   <img src="assets/thinking.png" alt="Robot thinking" width="250"/>
 </p>
 
-## EXTRA - Evaluation of Labeling and Training Strategies
-Initially, we explored alternative datasets that might be more naturally suited to classification-based emotion prediction. Our goal was to find a dataset that could support a supervised mood classification task, and sufficient sample sizes for effective fine-tuning of a language model. However, none of the available datasets, apart from the one used in our project, satisfied both criteria- limiting our ability to pursue classification in a meaningful way.
- 
-Secondly, we aimed to classify **lyrics** into discrete mood categories. Given that the dataset provided valence as a continuous score, we experimented with quantizing it into **four** distinct **classes**:  
-**Sad** (valence ≤ 0.25), **Calm** (0.25 < valence ≤ 0.5), **Content** (0.5 < valence ≤ 0.75), and **Happy** (valence > 0.75).    
-This process transformed the continuous valence values into integer class IDs ranging from 0 to 3, enabling us to approach the problem as a multi-class classification task.  
-In addition, we experimented with a **six class** division derived from the same valence scale, aiming to capture more nuanced emotional variations and evaluate whether finer granularity would lead to improved classification performance.  
-Unfortunately, both approaches yielded disappointing results:
-* The 4-class model barely reached ~40% accuracy.
-* The 6-class model performed even worse, at around ~20% accuracy.
-  
-We suspect the poor results were due to a large number of samples lying close to class boundaries, making them inherently ambiguous and causing the model to misclassify them frequently. This revealed a fundamental mismatch between the continuous nature of emotional valence and the rigid boundaries of discrete classification.  
-After several failed attempts and a few confused histograms, we metaphorically threw classification into the trash 🗑️.  
-Therefore, we decided to proceed with a regression-based approach which is naturally better suited for continuous labels like valence scores.
-
-Moreover, we evaluated the impact of applying LoRA to different numbers of final layers in the BERT model, treating the number of affected layers as a hyperparameter. The goal was to determine how the depth of adaptation influences performance, with a focus on the last layers where task-specific information is typically concentrated.  
-We experimented with adapting anywhere from 2 to 4 layers, gradually adjusting the range to observe performance changes. Ultimately, we settled on adapting 3 layers (layers 9–11), which consistently produced the most balanced results in terms of accuracy and stability.  
-
-However, our experiments showed that varying the number of LoRA-adapted layers had only a marginal effect on overall performance, suggesting that this approach alone was not sufficient to significantly improve regression accuracy.
 
 
 ## Future Work
