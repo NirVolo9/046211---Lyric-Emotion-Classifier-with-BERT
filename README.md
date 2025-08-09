@@ -64,7 +64,9 @@ Our model is based on the BERT-base architecture. The model takes as input a tok
 * **Regression Head**: A two-layer feedforward network:
   Linear(768 → 128) → ReLU → Linear(128 → 1)
   
-<img width="589" height="455" alt="chunks" src="https://github.com/user-attachments/assets/8bed137b-1207-4d6c-9ac8-2817139e8f3e" />
+<p align="center">
+  <img src="assets/chunks_logscale.png" alt="Chunks per Input Distribution" width="500">
+</p>
 
 
 
