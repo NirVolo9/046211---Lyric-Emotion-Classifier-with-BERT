@@ -118,7 +118,7 @@ We didn’t settle on these values arbitrarily but rather after extensive experi
  * Batch sizes: 8, 16, and 32 — to evaluate how gradient noise and update frequency affected convergence.
  * Learning rates: from 1e-5, 5e-5, 1e-4, up to 1e-3 aiming to balance speed of learning with stability.
  * Epoch counts: we trained for 15, 20, 25, and 30 epochs across configurations to study both underfitting and overfitting behaviors.
- * checked diffrent rank and alpha for LoRa
+ * checked different rank and alpha for LoRa
    
 After comparing performance metrics and training curves across these combinations, we settled on a configuration :
 
