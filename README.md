@@ -72,7 +72,7 @@ Our model is based on the BERT-base architecture. The model takes as input a tok
 
 ### Fine Tuning:
 To efficiently fine-tune BERT on our dataset, we incorporate Low-Rank Adaptation (LoRA), a parameter-efficient transfer learning method. LoRA is used to inject trainable low-rank matrices into linear layers (e.g., in self-attention).
-In our setup, LoRA is applied to the query and value projection layers of BERT's self-attention modules in the final 4 layers (layers 9–12).
+In our setup, LoRA is applied to the query and value projection layers of BERT's self-attention modules in the final 3 layers (layers 9,10,11).
 
 ### Model Flowchart
 <img width="970" height="434" alt="flowchart" src="https://github.com/user-attachments/assets/8aa381ac-4640-4961-b479-8366258bd5f6" />
