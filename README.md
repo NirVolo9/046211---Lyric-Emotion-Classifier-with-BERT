@@ -155,10 +155,11 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
 
 ## Conclusions
 1. Fine-tuned BERT model with LoRA adaptation achieved slightly better performance compared to the baseline MLP model.
-2. The overall prediction performance was not as strong as expected.
-3. Exploring alternative language models, such as RoBERTa, may yield improved results due to their stronger pretraining and representational capacity. However, utilizing such models was not feasible within our available computational resources.  
-4. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
-5.  Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
+2. Although validation loss for both models showed fluctuations, the fine-tuned BERT with LoRA generally displayed a more consistent downward trend compared to the baseline MLP. This indicates that the proposed method learned in a more stable manner and adapted better to the task, making its superior performance unsurprising.
+3. The overall prediction performance was not as strong as expected.
+4. Exploring alternative language models, such as RoBERTa, may yield improved results due to their stronger pretraining and representational capacity. However, utilizing such models was not feasible within our available computational resources.  
+5. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
+6.  Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
 
 <p align="center">
   <img src="assets/thinking.png" alt="Robot thinking" width="250"/>
