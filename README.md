@@ -111,6 +111,12 @@ However, our experiments showed that varying the number of LoRA-adapted layers h
   3) Emotion or valence labels
      
  This dataset  satisfied all the criteria, making it the natural choice for our regression-based modeling task.
+
+ <p align="center">
+  <img src="assets/kaggle.png" alt="BERT Google Logo" width="300"/>
+</p>
+
+
    
 ## Experimental Setup
 The model wasn't trained on the entire dataset due to hardware limitations. We took 30,000 samples out of the dataset.  
