@@ -1,4 +1,4 @@
-<h1 align="center">🎵 <u>Lyric-Emotion-Classifier-with-BERT</u> 🎵</h1>
+<h1 align="center">🎵 <u>Lyric-Emotion-Regressor-with-BERT</u> 🎵</h1>
 
 <h2 align="center">
   <i>Final project for the Technion's EE Deep Learning course (046211)</i>
