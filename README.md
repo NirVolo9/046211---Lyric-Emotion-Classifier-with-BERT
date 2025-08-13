@@ -51,6 +51,9 @@ By leveraging pretrained language models such as BERT, we seek to improve the un
 * Develop a model capable of accurately gauging emotional valence in song **lyrics**, capturing subtle mood shifts and emotional nuance in text.
   
 * Demonstrate meaningful improvements over a basic neural network baseline, showing how contextual understanding from a pretrained BERT model enhances emotion  regression performance.
+   To give legitimacy for the model’s performance, we note that in theory, for strong regression models that
+   outperform a uniform-distribution predictor over the range [0, 1], the MSE should be below 0.04. This represents
+   a desirable and legitimate result for a model successfully performing the task(Appendix).
 
 ## Our Model
 Our model is based on the BERT-base architecture. The model takes as input a tokenized segment (chunk) of **Lyrics** and outputs a continuous valence score representing the emotional content of the text.
@@ -166,7 +169,7 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
 2. Although validation loss for both models showed fluctuations, the fine-tuned BERT with LoRA generally displayed a more consistent downward trend compared to the baseline MLP. This indicates that the proposed method learned in a more stable manner and adapted better to the task, making its superior performance unsurprising.
 3. The overall prediction performance was not as strong as expected.  
     Assuming valence is uniformly distributed over [0, 1], the corresponding reference is MSE ≈ 0.083 and so a strong models typically achieve
-    values below 0.04 and our results were unfortunatly higher.
+    values below 0.04 and our results were unfortunatly higher than that.
 4. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
 5.  Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
 
