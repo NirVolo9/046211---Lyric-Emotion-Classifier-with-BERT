@@ -160,10 +160,13 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
 |proposed method|   0.0486|
 
 
+
 ## Conclusions
 1. Fine-tuned BERT model with LoRA adaptation achieved slightly better performance compared to the baseline MLP model.
 2. Although validation loss for both models showed fluctuations, the fine-tuned BERT with LoRA generally displayed a more consistent downward trend compared to the baseline MLP. This indicates that the proposed method learned in a more stable manner and adapted better to the task, making its superior performance unsurprising.
 3. The overall prediction performance was not as strong as expected.  
+    Assuming valence is uniformly distributed over [0, 1], the corresponding reference is MSE ≈ 0.083 and so a strong models typically achieve
+    values below 0.04 and our results were unfortunatly higher.
 4. Our suggested model struggled to fully capture the complexity of emotional expression in lyrics, indicating that valence prediction from text alone may be inherently limited — or that further architectural enhancements and richer multi-modal features (e.g., audio) may be needed.
 5.  Future improvements could involve richer multi-modal representations (e.g., incorporating audio features), as well as more advanced architectures or alternative language models like RoBERTa which may be feasible given access to proper computational resources.
 
