@@ -180,7 +180,7 @@ To evaluate the effectiveness of our approach, we compared our fine-tuned model 
 
 
 ## Future Work
-As mentions previously, future work could explore incorporating multi-modal inputs, such as audio features or acoustic embeddings, alongside lyrics. These additional modalities may help the model better capture the emotional nuances that are difficult to infer from text alone. 
+As mentions previously, future work could explore incorporating multi-modal inputs, such as audio features or acoustic embeddings, alongside lyrics. These additional modalities may help the model better capture the emotional nuances that are difficult to infer from text alone.   
 However, pursuing this direction would require a suitable dataset that includes both lyrics and corresponding audio, along with reliable valence annotations.  
 Exploring alternative language models, such as RoBERTa, may yield improved results due to their stronger pretraining and representational capacity. However, utilizing such models was not feasible within our available computational resources.
 
